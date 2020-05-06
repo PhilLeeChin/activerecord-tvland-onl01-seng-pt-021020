@@ -5,4 +5,10 @@ class Actor < ActiveRecord::Base
   def full_name
     "#{self.first_name} #{last_name}"
   end
+
+  def list_roles
+    characters.collect do |char|
+      "#{char.name} - #{char.show.name}"
+    end
+  end
 end
